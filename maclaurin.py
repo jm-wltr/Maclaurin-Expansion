@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 import decimal
 from math import factorial
 
-maclaurin1 = np.linspace(0,2*np.pi, 50)
-maclaurin2 = maclaurin1 - (maclaurin1**3/factorial(3))
-sinx = np.sin(maclaurin1)
-print(maclaurin1)
-print()
-print(maclaurin2)
-print()
-print(sinx)
-
-plt.plot(maclaurin1, maclaurin1)
-plt.plot(maclaurin1, maclaurin2)
+maclaurin1 = np.linspace(0,2*np.pi, 25)
+maclaurin2 = maclaurin1
+    
+for n in range(1):
+    if n != 0:
+        maclaurin2 += (-1)**n * maclaurin1**(2*n+1) / factorial(2*n+1)
+    print(maclaurin2)
+    print()
+    plt.plot(maclaurin1, maclaurin2)
 plt.plot(maclaurin1, np.sin(maclaurin1))
+    
+
